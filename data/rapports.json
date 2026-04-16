@@ -1,0 +1,22 @@
+[
+  {
+    "annee": 2024,
+    "titre": "Rapport Annuel 2024",
+    "resume": "Revue complète de l'exercice 2024 : performance du portefeuille, analyse des positions, opérations réalisées dans l'année et perspectives. L'exercice 2024 a été marqué par un renforcement de nos positions en réassurance et l'initiation d'une ligne en logiciel industriel.",
+    "fichier": "/rapports/connan-investment-rapport-annuel-2024.pdf",
+    "publie": "2025-03-15",
+    "pages": 32,
+    "rendementPortefeuille": "À paraître",
+    "rendementComparaison": "MSCI World (EUR)"
+  },
+  {
+    "annee": 2023,
+    "titre": "Rapport Annuel 2023",
+    "resume": "Bilan de l'exercice 2023 : décisions d'investissement, réflexions sur la psychologie de marché et revue sectorielle. Nous avons initié deux nouvelles positions (Fairfax Financial, Booking Holdings) et renforcé notre conviction sur Munich Re.",
+    "fichier": "/rapports/connan-investment-rapport-annuel-2023.pdf",
+    "publie": "2024-03-20",
+    "pages": 28,
+    "rendementPortefeuille": "+18,4 %",
+    "rendementComparaison": "MSCI World (EUR) : +19,2 %"
+  }
+]

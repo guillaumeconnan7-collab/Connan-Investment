@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "dernierePublication": "2025-03-31",
+    "rendementAnnualise": "Voir rapport annuel 2024",
+    "nombrePositions": 8,
+    "liquidites": 24
+  },
+  "positions": [
+    {
+      "entreprise": "Munich Re",
+      "ticker": "MUV2",
+      "bourse": "Xetra",
+      "secteur": "Réassurance",
+      "geographie": "Allemagne",
+      "poids": 12,
+      "dateEntree": "2022-11",
+      "these": "Premier réassureur mondial. Discipline de souscription exemplaire, flottant massif et valorisation attractive en relatif."
+    },
+    {
+      "entreprise": "Berkshire Hathaway",
+      "ticker": "BRK.B",
+      "bourse": "NYSE",
+      "secteur": "Conglomérat",
+      "geographie": "États-Unis",
+      "poids": 11,
+      "dateEntree": "2021-06",
+      "these": "Conglomérat dirigé par Warren Buffett. Modèle d'allocation de capital supérieur, assurance comme source de financement permanent à coût négatif."
+    },
+    {
+      "entreprise": "Dassault Systèmes",
+      "ticker": "DSY",
+      "bourse": "Euronext Paris",
+      "secteur": "Logiciel industriel",
+      "geographie": "France",
+      "poids": 9,
+      "dateEntree": "2024-07",
+      "these": "Éditeur de CATIA et 3DEXPERIENCE. Moat de substitution exceptionnellement fort ; sous-valorisé post-correction de 40 % depuis 2021."
+    },
+    {
+      "entreprise": "Fairfax Financial",
+      "ticker": "FFH",
+      "bourse": "TSX",
+      "secteur": "Assurance",
+      "geographie": "Canada",
+      "poids": 9,
+      "dateEntree": "2023-02",
+      "these": "Holding d'assurance dirigé par Prem Watsa. Culture value investing similaire à Berkshire, portefeuille obligataire repositionné à taux élevés."
+    },
+    {
+      "entreprise": "Alphabet",
+      "ticker": "GOOGL",
+      "bourse": "Nasdaq",
+      "secteur": "Technologie",
+      "geographie": "États-Unis",
+      "poids": 8,
+      "dateEntree": "2022-05",
+      "these": "Monopole de fait sur la recherche. YouTube, Cloud et Android offrent des sources de revenus structurellement croissantes. Valorisation attrayante vs. FCF."
+    },
+    {
+      "entreprise": "Booking Holdings",
+      "ticker": "BKNG",
+      "bourse": "Nasdaq",
+      "secteur": "Voyage en ligne",
+      "geographie": "États-Unis",
+      "poids": 8,
+      "dateEntree": "2023-09",
+      "these": "Plateforme de réservation hôtelière dominant l'Europe. Effets de réseau solides, marges élevées, génération de cash-flow libre abondante."
+    },
+    {
+      "entreprise": "Hermès International",
+      "ticker": "RMS",
+      "bourse": "Euronext Paris",
+      "secteur": "Luxe",
+      "geographie": "France",
+      "poids": 7,
+      "dateEntree": "2020-03",
+      "these": "Franchise artisanale irréplicable. Rareté contrôlée, pricing power absolu, famille fondatrice alignée sur le très long terme."
+    },
+    {
+      "entreprise": "Exor",
+      "ticker": "EXO",
+      "bourse": "Euronext Amsterdam",
+      "secteur": "Holding",
+      "geographie": "Pays-Bas / Italie",
+      "poids": 6,
+      "dateEntree": "2024-01",
+      "these": "Holding de la famille Agnelli. Exposition diversifiée (Stellantis, Ferrari, CNH, PartnerRe) avec une décote sur ANR historiquement persistante."
+    }
+  ]
+}
