@@ -4,7 +4,34 @@ import { getRapportsByYear } from '@/lib/rapports'
 export const metadata: Metadata = {
   title: 'Rapports annuels',
   description:
-    'Rapports annuels de Connan Investment : performances, positions et réflexions par exercice.',
+    "Rapports annuels de Connan Investment : bilan de l'exercice, performance du portefeuille, décisions d'investissement et réflexions sur le marché. Transparence et pédagogie value investing.",
+  keywords: [
+    'rapport annuel investissement',
+    'performance portefeuille',
+    'lettre aux actionnaires',
+    'bilan financier annuel',
+    'value investing',
+    'investissement long terme',
+    'analyse fondamentale',
+    'gestion de portefeuille',
+    'transparence investissement',
+  ],
+  openGraph: {
+    title: 'Rapports annuels — Connan Investment',
+    description:
+      "Rapports annuels : performance du portefeuille, décisions d'investissement et réflexions sur le marché. Approche value investing.",
+    url: 'https://connaninvestment.com/rapports',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Rapports annuels — Connan Investment',
+    description:
+      "Performance du portefeuille, décisions d'investissement et réflexions sur le marché.",
+  },
+  alternates: {
+    canonical: 'https://connaninvestment.com/rapports',
+  },
 }
 
 function formatDate(dateStr: string) {

@@ -2,7 +2,7 @@
   "meta": {
     "dernierePublication": "2025-03-31",
     "rendementAnnualise": "Voir rapport annuel 2024",
-    "nombrePositions": 8,
+    "nombrePositions": 7,
     "liquidites": 24
   },
   "positions": [
@@ -65,16 +65,6 @@
       "poids": 8,
       "dateEntree": "2023-09",
       "these": "Plateforme de réservation hôtelière dominant l'Europe. Effets de réseau solides, marges élevées, génération de cash-flow libre abondante."
-    },
-    {
-      "entreprise": "Hermès International",
-      "ticker": "RMS",
-      "bourse": "Euronext Paris",
-      "secteur": "Luxe",
-      "geographie": "France",
-      "poids": 7,
-      "dateEntree": "2020-03",
-      "these": "Franchise artisanale irréplicable. Rareté contrôlée, pricing power absolu, famille fondatrice alignée sur le très long terme."
     },
     {
       "entreprise": "Exor",

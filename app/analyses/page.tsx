@@ -5,7 +5,34 @@ import { getAllAnalyses } from '@/lib/analyses'
 export const metadata: Metadata = {
   title: 'Analyses',
   description:
-    "Analyses value investing publiées par Connan Investment : thèses d'investissement, valorisation et risques.",
+    "Analyses d'entreprises cotées selon une approche value investing : thèse d'investissement, analyse fondamentale, valorisation et risques. Recommandations Achat, Suivi ou Neutre.",
+  keywords: [
+    'analyse financière',
+    'value investing',
+    'thèse d\'investissement',
+    'analyse fondamentale',
+    'actions cotées',
+    'analyse boursière',
+    'investissement long terme',
+    'recommandation achat',
+    'valorisation entreprise',
+  ],
+  openGraph: {
+    title: 'Analyses — Connan Investment',
+    description:
+      "Analyses d'entreprises cotées : thèses d'investissement, analyse fondamentale, valorisation et risques. Approche value investing.",
+    url: 'https://connaninvestment.com/analyses',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Analyses — Connan Investment',
+    description:
+      "Analyses d'entreprises cotées : thèses d'investissement, valorisation et risques.",
+  },
+  alternates: {
+    canonical: 'https://connaninvestment.com/analyses',
+  },
 }
 
 function formatDate(dateStr: string) {

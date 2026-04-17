@@ -1,7 +1,44 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllAnalyses } from '@/lib/analyses'
 import { getPositions, getPortfolioMeta } from '@/lib/portfolio'
 import { getRapportsByYear } from '@/lib/rapports'
+
+export const metadata: Metadata = {
+  title: 'Connan Investment — Value Investing & Analyse Fondamentale',
+  description:
+    "Connan Investment publie des analyses d'entreprises selon les principes du value investing : analyse fondamentale, thèses d'investissement long terme, portefeuille actions et rapports annuels. Capital personnel, sans effet de levier.",
+  keywords: [
+    'value investing',
+    'analyse fondamentale',
+    'investissement long terme',
+    'portefeuille actions',
+    'thèse d\'investissement',
+    'analyse boursière',
+    'Connan Investment',
+    'Guillaume Connan',
+    'marge de sécurité',
+    'investissement sans levier',
+    'actions européennes',
+    'analyse financière',
+  ],
+  openGraph: {
+    title: 'Connan Investment — Value Investing & Analyse Fondamentale',
+    description:
+      "Analyses d'entreprises, portefeuille actions et rapports annuels. Approche value investing fondée sur l'analyse fondamentale et l'horizon long terme.",
+    url: 'https://connaninvestment.com',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Connan Investment — Value Investing & Analyse Fondamentale',
+    description:
+      "Analyses d'entreprises, portefeuille actions et rapports annuels. Approche value investing fondée sur l'analyse fondamentale.",
+  },
+  alternates: {
+    canonical: 'https://connaninvestment.com',
+  },
+}
 
 const pilliers = [
   'Analyse fondamentale',

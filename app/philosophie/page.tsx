@@ -1,9 +1,39 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Philosophie",
+  title: "Philosophie d'investissement",
   description:
-    "La philosophie d'investissement de Connan Investment : analyse fondamentale, approche contrarienne, horizon long terme.",
+    "La philosophie d'investissement de Connan Investment : analyse fondamentale, approche contrarienne, horizon long terme et discipline sans levier. Inspirée de Graham, Buffett et Munger.",
+  keywords: [
+    'philosophie investissement',
+    'value investing',
+    'analyse fondamentale',
+    'investissement long terme',
+    'approche contrarienne',
+    'Benjamin Graham',
+    'Warren Buffett',
+    'Charlie Munger',
+    'marge de sécurité',
+    'investissement sans levier',
+    'gestion patrimoniale',
+    'Howard Marks',
+  ],
+  openGraph: {
+    title: "Philosophie d'investissement — Connan Investment",
+    description:
+      "Analyse fondamentale, approche contrarienne, horizon long terme et discipline sans levier. Une philosophie inspirée de Graham, Buffett et Munger.",
+    url: 'https://connaninvestment.com/philosophie',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: "Philosophie d'investissement — Connan Investment",
+    description:
+      "Analyse fondamentale, approche contrarienne, horizon long terme et discipline sans levier.",
+  },
+  alternates: {
+    canonical: 'https://connaninvestment.com/philosophie',
+  },
 }
 
 const principes = [

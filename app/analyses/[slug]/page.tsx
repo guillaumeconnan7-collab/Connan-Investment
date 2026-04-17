@@ -13,9 +13,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const analyse = getAnalyseBySlug(slug)
   if (!analyse) return {}
+
+  const title = analyse.titre
+  const description = analyse.resume
+  const url = `https://connaninvestment.com/analyses/${slug}`
+
   return {
-    title: analyse.titre,
-    description: analyse.resume,
+    title,
+    description,
+    keywords: [
+      analyse.entreprise,
+      analyse.ticker,
+      analyse.secteur,
+      analyse.geographie,
+      'value investing',
+      'analyse fondamentale',
+      'thèse d\'investissement',
+      'analyse financière',
+      'investissement long terme',
+      analyse.recommandation === 'Achat' ? 'recommandation achat' : 'analyse boursière',
+    ],
+    authors: [{ name: 'Guillaume Connan', url: 'https://connaninvestment.com' }],
+    openGraph: {
+      title: `${title} — Connan Investment`,
+      description,
+      url,
+      type: 'article',
+      publishedTime: analyse.date,
+      authors: ['Guillaume Connan'],
+      tags: [analyse.secteur, analyse.geographie, 'value investing', 'analyse fondamentale'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} — Connan Investment`,
+      description,
+    },
+    alternates: {
+      canonical: url,
+    },
   }
 }
 

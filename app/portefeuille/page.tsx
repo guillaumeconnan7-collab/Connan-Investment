@@ -11,7 +11,34 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Portefeuille',
   description:
-    'Portefeuille de Connan Investment : positions publiées à la dernière date de mise à jour.',
+    "Composition du portefeuille de Connan Investment : positions actions, répartition sectorielle et géographique. Données publiées semestriellement. Approche value investing, long terme, sans effet de levier.",
+  keywords: [
+    'portefeuille actions',
+    'allocation d\'actifs',
+    'value investing',
+    'investissement long terme',
+    'répartition sectorielle',
+    'portefeuille boursier',
+    'positions actions',
+    'analyse fondamentale',
+    'gestion de portefeuille',
+  ],
+  openGraph: {
+    title: 'Portefeuille — Connan Investment',
+    description:
+      "Composition du portefeuille de Connan Investment : positions, répartition sectorielle et géographique. Approche value investing long terme.",
+    url: 'https://connaninvestment.com/portefeuille',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Portefeuille — Connan Investment',
+    description:
+      "Positions actions, répartition sectorielle et géographique. Approche value investing long terme.",
+  },
+  alternates: {
+    canonical: 'https://connaninvestment.com/portefeuille',
+  },
 }
 
 function formatPublicationDate(dateStr: string) {
