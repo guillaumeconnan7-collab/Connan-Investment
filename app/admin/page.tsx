@@ -56,21 +56,21 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        {/* Aperçu dernières analyses */}
+        {/* Aperçu dernières publications */}
         <div className="mt-10">
-          <h2 className="text-base font-serif text-navy mb-4">Dernières analyses publiées</h2>
+          <h2 className="text-base font-serif text-navy mb-4">Dernières publications</h2>
           <div className="bg-white border border-gray-200 divide-y divide-gray-100">
+            {analyses.length === 0 && (
+              <p className="px-4 py-4 text-[13px] text-gray-400">Aucune publication pour le moment.</p>
+            )}
             {analyses.slice(0, 5).map((a) => (
               <div key={a.slug} className="flex items-center justify-between px-4 py-3 text-[13px]">
                 <div>
                   <span className="font-medium text-navy">{a.titre}</span>
                   <span className="ml-3 text-gray-400">{a.date}</span>
                 </div>
-                <span className={
-                  a.recommandation === 'Achat' ? 'badge-achat' :
-                  a.recommandation === 'Neutre' ? 'badge-neutre' : 'badge-suivi'
-                }>
-                  {a.recommandation}
+                <span className="text-[10px] font-medium uppercase tracking-wide text-brand-blue">
+                  {a.categorie}
                 </span>
               </div>
             ))}
