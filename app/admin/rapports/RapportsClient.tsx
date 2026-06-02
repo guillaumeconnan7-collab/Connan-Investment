@@ -181,7 +181,7 @@ export default function RapportsClient({ initialRapports }: Props) {
           <div className="flex gap-3 pt-2">
             <button
               type="submit"
-              disabled={loading || uploading}
+              disabled={loading}
               className="text-[13px] font-medium text-white bg-navy px-5 py-2.5 hover:bg-navy-light transition-colors disabled:opacity-50"
             >
               {loading ? 'Enregistrement…' : editAnnee ? 'Mettre à jour' : 'Publier'}
