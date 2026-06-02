@@ -78,9 +78,43 @@ export const metadata: Metadata = {
   },
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Connan Investment',
+  url: 'https://connaninvestment.com',
+  logo: 'https://connaninvestment.com/logo-horizontal.png',
+  description:
+    "Société d'investissement personnel fondée sur l'analyse fondamentale, l'approche contrarienne et un horizon long terme. Capital personnel, sans effet de levier.",
+  foundingDate: '2025',
+  founder: {
+    '@type': 'Person',
+    name: 'Guillaume Connan',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Paris',
+    addressCountry: 'FR',
+  },
+  identifier: {
+    '@type': 'PropertyValue',
+    name: 'SIREN',
+    value: '991905860',
+  },
+  sameAs: [
+    'https://connaninvestment.com',
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className="font-sans min-h-screen flex flex-col"
         style={{ fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif' }}
