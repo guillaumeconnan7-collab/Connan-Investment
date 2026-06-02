@@ -8,7 +8,8 @@ import { useState } from 'react'
 const links = [
   { href: '/', label: 'Accueil' },
   { href: '/philosophie', label: 'Philosophie' },
-  { href: '/analyses', label: 'Analyses' },
+  { href: '/analyses', label: 'Publications' },
+  { href: '/track-record', label: 'Track Record' },
   { href: '/portefeuille', label: 'Portefeuille' },
   { href: '/rapports', label: 'Rapports annuels' },
 ]

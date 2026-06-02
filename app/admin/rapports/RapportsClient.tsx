@@ -27,8 +27,6 @@ export default function RapportsClient({ initialRapports }: Props) {
   const [showForm, setShowForm] = useState(false)
   const [editAnnee, setEditAnnee] = useState<number | null>(null)
   const [form, setForm] = useState<FormState>(emptyForm)
-  const [pdfFile, setPdfFile] = useState<File | null>(null)
-  const [uploading, setUploading] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -42,7 +40,6 @@ export default function RapportsClient({ initialRapports }: Props) {
   function openNew() {
     setForm(emptyForm)
     setEditAnnee(null)
-    setPdfFile(null)
     setError('')
     setShowForm(true)
   }
@@ -50,7 +47,6 @@ export default function RapportsClient({ initialRapports }: Props) {
   function openEdit(r: Rapport) {
     setForm({ ...r })
     setEditAnnee(r.annee)
-    setPdfFile(null)
     setError('')
     setShowForm(true)
   }
@@ -59,32 +55,13 @@ export default function RapportsClient({ initialRapports }: Props) {
     e.preventDefault()
     setError('')
 
-    let fichier = form.fichier
-
-    // Upload PDF si un fichier est sélectionné
-    if (pdfFile) {
-      setUploading(true)
-      const fd = new FormData()
-      fd.append('file', pdfFile)
-      const uploadRes = await fetch('/api/upload', { method: 'POST', body: fd })
-      setUploading(false)
-
-      if (!uploadRes.ok) {
-        const d = await uploadRes.json()
-        setError(d.error ?? 'Erreur lors de l\'upload.')
-        return
-      }
-      const { path } = await uploadRes.json()
-      fichier = path
-    }
-
-    if (!fichier) {
-      setError('Veuillez fournir un fichier PDF ou une URL.')
+    if (!form.fichier) {
+      setError('Veuillez saisir le chemin du fichier PDF.')
       return
     }
 
     setLoading(true)
-    const payload: Rapport = { ...form, fichier }
+    const payload: Rapport = { ...form }
 
     const url = editAnnee ? `/api/rapports/${editAnnee}` : '/api/rapports'
     const method = editAnnee ? 'PUT' : 'POST'
@@ -174,36 +151,27 @@ export default function RapportsClient({ initialRapports }: Props) {
             <textarea required rows={4} value={form.resume} onChange={field('resume')} className="admin-input resize-y" />
           </div>
 
-          {/* Upload PDF */}
+          {/* Chemin PDF */}
           <div className="flex flex-col gap-2">
-            <label className="text-[12px] font-medium text-gray-600">Fichier PDF</label>
-            <div className="flex flex-col gap-2">
-              <label className="cursor-pointer inline-flex items-center gap-2 text-[12px] text-navy border border-navy px-4 py-2 w-fit hover:bg-navy hover:text-white transition-colors">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                </svg>
-                {pdfFile ? pdfFile.name : 'Choisir un PDF'}
-                <input
-                  type="file"
-                  accept="application/pdf"
-                  className="hidden"
-                  onChange={(e) => setPdfFile(e.target.files?.[0] ?? null)}
-                />
-              </label>
-              <p className="text-[11px] text-gray-400">
-                Ou saisir directement le chemin :
+            <label className="text-[12px] font-medium text-gray-600">Chemin du fichier PDF *</label>
+            <input
+              type="text"
+              required
+              value={form.fichier}
+              onChange={field('fichier')}
+              className="admin-input font-mono"
+              placeholder="ex: /rapports/rapport-s1-2026.pdf"
+            />
+            <div className="flex items-start gap-2 bg-amber-50 border border-amber-200 px-3 py-2.5">
+              <svg className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p className="text-[11px] text-amber-700 leading-relaxed">
+                Le site est hébergé sur <strong>Vercel</strong> — l&rsquo;upload direct n&rsquo;est pas possible.
+                Place ton PDF dans <code className="bg-amber-100 px-1">public/rapports/</code> du repo GitHub,
+                pousse sur main, puis saisis le chemin ici (ex&nbsp;: <code className="bg-amber-100 px-1">/rapports/rapport-s1-2026.pdf</code>).
               </p>
-              <input
-                type="text"
-                value={form.fichier}
-                onChange={field('fichier')}
-                className="admin-input"
-                placeholder="ex: /rapports/rapport-2025.pdf"
-              />
             </div>
-            {form.fichier && !pdfFile && (
-              <p className="text-[11px] text-gray-500">Fichier actuel : <span className="font-mono">{form.fichier}</span></p>
-            )}
           </div>
 
           {error && (
@@ -216,7 +184,7 @@ export default function RapportsClient({ initialRapports }: Props) {
               disabled={loading || uploading}
               className="text-[13px] font-medium text-white bg-navy px-5 py-2.5 hover:bg-navy-light transition-colors disabled:opacity-50"
             >
-              {uploading ? 'Upload en cours…' : loading ? 'Enregistrement…' : editAnnee ? 'Mettre à jour' : 'Publier'}
+              {loading ? 'Enregistrement…' : editAnnee ? 'Mettre à jour' : 'Publier'}
             </button>
             <button
               type="button"

@@ -18,54 +18,37 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
-// PUT /api/analyses/[slug] — mettre à jour
+// PUT /api/analyses/[slug]
 export async function PUT(request: NextRequest, { params }: Props) {
   const { slug } = await params
-  const body = await request.json() as Partial<Analyse> & {
-    descriptionText?: string
-    theseText?: string
-    points_cles_text?: string
-    risques_text?: string
+  const body = await request.json() as {
+    titre?: string
+    categorie?: string
+    date?: string
+    resume?: string
+    contenuText?: string
   }
 
   const data = read()
   const index = data.findIndex((a) => a.slug === slug)
   if (index === -1) {
-    return NextResponse.json({ error: 'Analyse introuvable.' }, { status: 404 })
+    return NextResponse.json({ error: 'Publication introuvable.' }, { status: 404 })
   }
 
   const updated: Analyse = {
     ...data[index],
     titre: body.titre ?? data[index].titre,
-    entreprise: body.entreprise ?? data[index].entreprise,
-    ticker: body.ticker ?? data[index].ticker,
-    bourse: body.bourse ?? data[index].bourse,
-    secteur: body.secteur ?? data[index].secteur,
-    geographie: body.geographie ?? data[index].geographie,
+    categorie: body.categorie ?? data[index].categorie,
     date: body.date ?? data[index].date,
     resume: body.resume ?? data[index].resume,
-    recommandation: body.recommandation ?? data[index].recommandation,
-    sections: {
-      description: body.descriptionText !== undefined
-        ? body.descriptionText.split('\n\n').filter(Boolean).map((text) => ({ type: 'paragraph' as const, text: text.trim() }))
-        : data[index].sections.description,
-      these: body.theseText !== undefined
-        ? body.theseText.split('\n\n').filter(Boolean).map((text) => ({ type: 'paragraph' as const, text: text.trim() }))
-        : data[index].sections.these,
-      points_cles: body.points_cles_text !== undefined
-        ? body.points_cles_text.split('\n').map((s) => s.trim()).filter(Boolean)
-        : data[index].sections.points_cles,
-      risques: body.risques_text !== undefined
-        ? body.risques_text.split('\n').map((s) => s.trim()).filter(Boolean)
-        : data[index].sections.risques,
-      conclusion: body.sections?.conclusion ?? data[index].sections.conclusion,
-    },
+    contenu: body.contenuText !== undefined
+      ? body.contenuText.split('\n\n').map((p) => p.trim()).filter(Boolean)
+      : data[index].contenu,
   }
 
   data[index] = updated
   write(data)
 
-  revalidatePath('/')
   revalidatePath('/analyses')
   revalidatePath(`/analyses/${slug}`)
 
@@ -79,12 +62,11 @@ export async function DELETE(_request: NextRequest, { params }: Props) {
   const filtered = data.filter((a) => a.slug !== slug)
 
   if (filtered.length === data.length) {
-    return NextResponse.json({ error: 'Analyse introuvable.' }, { status: 404 })
+    return NextResponse.json({ error: 'Publication introuvable.' }, { status: 404 })
   }
 
   write(filtered)
 
-  revalidatePath('/')
   revalidatePath('/analyses')
 
   return NextResponse.json({ ok: true })
