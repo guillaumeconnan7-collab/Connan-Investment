@@ -135,20 +135,9 @@ export default function HomePage() {
             {analyses.map((a) => (
               <Link key={a.slug} href={`/analyses/${a.slug}`} className="group">
                 <article className="card h-full flex flex-col">
-                  <div className="flex items-start justify-between gap-2 mb-3">
-                    <span className="text-[11px] text-gray-400 font-medium uppercase tracking-wide">
-                      {a.secteur}
-                    </span>
-                    <span
-                      className={
-                        a.recommandation === 'Achat'
-                          ? 'badge-achat'
-                          : a.recommandation === 'Neutre'
-                            ? 'badge-neutre'
-                            : 'badge-suivi'
-                      }
-                    >
-                      {a.recommandation}
+                  <div className="mb-3">
+                    <span className="text-[11px] font-medium uppercase tracking-wide text-brand-blue">
+                      {a.categorie}
                     </span>
                   </div>
 
