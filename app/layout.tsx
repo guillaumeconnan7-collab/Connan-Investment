@@ -71,7 +71,8 @@ export const metadata: Metadata = {
     creator: '@connaninvest',
   },
   icons: {
-    icon: '/logo-horizontal.png',
+    icon: '/logo-square.png',
+    apple: '/logo-square.png',
   },
   alternates: {
     canonical: BASE_URL,
@@ -83,7 +84,7 @@ const jsonLd = {
   '@type': 'Organization',
   name: 'Connan Investment',
   url: 'https://connaninvestment.com',
-  logo: 'https://connaninvestment.com/logo-horizontal.png',
+  logo: 'https://connaninvestment.com/logo-square.png',
   description:
     "Société d'investissement personnel fondée sur l'analyse fondamentale, l'approche contrarienne et un horizon long terme. Capital personnel, sans effet de levier.",
   foundingDate: '2025',
